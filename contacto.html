@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=m, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .slider-prev {
+        animation: arrowPrev 0.3s;
+        -webkit-animation: arrowPrev 0.3s;
+      }
+      .slider-next {
+        animation: arrowNext 0.3s;
+        -webkit-animation: arrowNext 0.3s;
+      }
+
+      @keyframes arrowPrev {
+        0% {
+          opacity: 0;
+          right: -100%;
+        }
+        20% {
+          opacity: 0.2;
+          right: -80%;
+        }
+        40% {
+          opacity: 0.4;
+          right: -60%;
+        }
+        60% {
+          opacity: 0.6;
+          right: -40%;
+        }
+        80% {
+          opacity: 0.8;
+          right: -20%;
+        }
+        100% {
+          right: 0%;
+          opacity: 1;
+        }
+      }
+
+      @keyframes arrowNext {
+        0% {
+          opacity: 0;
+          left: -100%;
+        }
+        20% {
+          opacity: 0.2;
+          left: -80%;
+        }
+        40% {
+          opacity: 0.4;
+          left: -60%;
+        }
+        60% {
+          opacity: 0.6;
+          left: -40%;
+        }
+        80% {
+          opacity: 0.8;
+          left: -20%;
+        }
+        100% {
+          left: 0%;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container"></div>
+
+    <script>
+      const sliderDb = [
+        {
+          title: "Titulo de ejemplo uno",
+          src: "./images/square_1.jpg",
+        },
+        {
+          title: "Titulo de ejemplo dos",
+          src: "https://source.unsplash.com/random/?tech",
+        },
+        {
+          title: "Titulo de ejemplo tres",
+          src: "https://source.unsplash.com/random/?cars",
+        },
+      ];
+      document.querySelector(".slider-container").innerHTML = `
+    <div class = "slider-item"></div>
+    <ul class = "pagination"></ul>
+    <button class="arrow prev-item" ></button>
+    <button class="arrow next-item" ></button>`;
+      function pagination() {
+        sliderDb.forEach((e, index) => {
+          document.querySelector(
+            ".pagination"
+          ).innerHTML += `<li><button class = "dot">${index}</button></li>`;
+        });
+      }
+      setInterval(() => {
+        !isPaused ? renderItem("next") : 0;
+      }, 5000);
+      document
+        .querySelector(".next-item")
+        .addEventListener("click", function () {
+          isPaused = true;
+          renderItem("next");
+          delay();
+        });
+
+      const delay = () =>
+        setTimeout(function () {
+          isPaused = false;
+        }, 6000);
+
+      document
+        .querySelector(".prev-item")
+        .addEventListener("click", function () {
+          isPaused = true;
+          renderItem("prev");
+          delay();
+        });
+
+      document.querySelectorAll(".dot").forEach((e, dotIndex) => {
+        e.addEventListener("click", function (e) {
+          isPaused = true;
+          renderItem(null, dotIndex);
+          delay();
+        });
+      });
+
+      var animationClass = "";
+
+      state == "next" ? itemIndex++ : itemIndex--;
+      dotIndex != undefined ? (itemIndex = dotIndex) : 0;
+      itemIndex > sliderDb.length - 1 ? (itemIndex = 0) : 0;
+      itemIndex < 0 ? (itemIndex = sliderDb.length - 1) : 0;
+
+      document.querySelector(".slider-item").innerHTML = `
+    <div class = "item-background ${animationClass}" style = "background: url(${sliderDb[itemIndex].src}) no-repeat center/cover;"></div>
+        <div class="item-title__container">
+        <h2 class ="item-title__title">${sliderDb[itemIndex].title}</h2>
+    </div>
+`;
+    </script>
+  </body>
+</html>

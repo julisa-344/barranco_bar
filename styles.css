@@ -1,0 +1,380 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  scroll-behavior: smooth;
+}
+
+:root {
+  --secondary-color: #0b0b0b;
+  --neutral-color: #afafaf;
+  --main-color: #ff4c4c;
+  --bg-color: #fff9f9;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 150px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+/* == ESTRUCTURA == */
+header {
+  width: 84%;
+  height: auto;
+  margin: 0 auto;
+  padding: 2% 0 0 0;
+  background-color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  text-align: center;
+}
+nav {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 1.4% 2%;
+  background-color: var(--secondary-color);
+}
+main {
+  width: 84%;
+  height: auto;
+  margin: 0 auto;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: row;
+}
+.main{
+  background-color: var(--bg-color);
+}
+/* section {
+  width: 76%;
+  padding: 2%;
+  background: var(--secondary-color);
+} */
+.contain_main {
+  background-color: var(--secondary-color);
+  padding: 30px;
+}
+aside {
+  width: 20%;
+}
+footer {
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 1.5% 2%;
+  background-color: var(--secondary-color);
+}
+/* == TIPOGRAFÍAS ==  */
+
+@font-face {
+  font-family: "Kiona";
+  src: url("fonts/Kiona-Regular.ttf");
+}
+@font-face {
+  font-family: "Gothic";
+  src: url("fonts/GOTHIC.TTF");
+}
+
+h1 {
+  font-family: "Kiona", sans-serif;
+  font-weight: 500;
+  font-size: 4.8rem;
+  text-transform: uppercase;
+
+    text-align: center;
+    margin: 20px;
+}
+h2 {
+  font-family: "Kiona", sans-serif;
+  font-weight: 400;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+h3 {
+  font-family: "Kiona", sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 15px;
+  color: var(--bg-color);
+}
+
+.lead_text {
+  font-size: 2.2rem;
+  font-family: "Gothic", sans-serif;
+  font-weight: 300;
+  color: var(--neutral-color);
+}
+
+.footer_text {
+  font-size: 1.6rem;
+  color: var(--neutral-color);
+  margin-bottom: 0;
+}
+
+/* == ENLACES == */
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+a:hover {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+/* == BOTONES == */
+.main_btn {
+  display: inline-block;
+  color: var(--bg-color);
+  padding: 10px 24px;
+  text-decoration: none;
+  margin: 2% 0;
+  border-radius: 24px;
+  font-family: "Open Sans", arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  border: 1px solid var(--secondary-color);
+}
+.btn_red:hover,
+.btn_siguiente {
+  background-color: rgba(255, 76, 76, 0.1);
+  border: 1px solid #ff4c4c;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.btn_grey:hover {
+  background: rgb(175, 175, 175, 0.1);
+  border: 1px solid var(--neutral-color);
+  color: var(--neutral-color);
+  cursor: pointer;
+}
+.btn_red {
+  background-color: var(--main-color);
+}
+.btn_grey {
+  background-color: var(--neutral-color);
+}
+.btn_siguiente {
+  border-radius: 50%;
+  padding: 10px 14px;
+}
+.btn_siguiente:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+}
+.flecha {
+  font-size: 3.5rem;
+  position: relative;
+  bottom: -8px;
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+/* == MÓDULOS FLEXBOX == */
+
+.modulo_main {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.modulo_1 > h2,
+.modulo_1 > p,
+.modulo_2 > h3,
+.modulo_2 > p {
+  color: var(--secondary-color);
+}
+.modulo_1 {
+  width: 96%;
+  height: auto;
+  margin: 2%;
+  background: var(--main-color);
+}
+.modulo_2 {
+  width: 42%;
+  height: auto;
+  margin: 2%;
+  background: var(--main-color);
+}
+.modulo_main,
+.modulo_1,
+.modulo_2 {
+  padding: 2%;
+  border-radius: 20px;
+}
+
+/* == TOP MENU == */
+.logo {
+  width: 200px;
+}
+.top_menu {
+  width: 96%;
+  display: flex;
+  justify-content: center;
+}
+a.enlace_top_menu:link,
+a.enlace_top_menu:visited {
+  width: auto;
+  font-weight: bold;
+  font-family: "Kiona", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: var(--bg-color);
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+a.enlace_top_menu:hover,
+a.enlace_top_menu:active {
+  color: var(--main-color);
+}
+
+/* == SIDE MENU == */
+
+.title-categorias {
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--bg-color);
+  margin-bottom: 0;
+  color: var(--bg-color);
+  font-weight: 400;
+}
+a.enlace_side_menu:link,
+a.enlace_side_menu:visited {
+  width: auto;
+  font-size: 1.6rem;
+  color: var(--bg-color);
+  font-family: "Gothic", sans-serif;
+  text-decoration: none;
+  padding: 20px 40px;
+  display: block;
+  border-bottom: 1px solid var(--bg-color);
+}
+a.enlace_side_menu:hover,
+a.enlace_side_menu:active {
+  text-decoration: underline;
+}
+
+/* == LINK IMAGES == */
+.boton-imagen {
+  filter: grayscale(100%);
+}
+.boton-imagen:hover {
+  filter: brightness(120%);
+}
+
+/* == FORMULARIO ==*/
+form > input,
+textarea {
+  width: 85%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 6px;
+  font-family: "Gothic", sans-serif;
+  color: var(--bg-color);
+}
+input::placeholder,
+textarea::placeholder {
+  font-family: "Gothic", sans-serif;
+  color: var(--bg-color);
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+label {
+  font-family: "Gothic", sans-serif;
+  font-size: 1.6rem;
+  color: var(--bg-color);
+}
+
+
+/* == MEDIA QUERIES - TABLET == */
+
+@media screen and (max-width: 768px) {
+  header,
+  nav,
+  main,
+  .boton-imagen,
+  .top_menu,
+  .enlace_top_menu,
+  footer {
+    width: 100%;
+    padding: 0;
+  }
+  .top_menu,
+  footer {
+    padding: 2% 0;
+  }
+  .footer_text {
+    text-align: center;
+  }
+}
+
+/* == MEDIA QUERIES - SMARTPHONE == */
+@media screen and (max-width: 425px) {
+  header,
+  nav,
+  main,
+  .boton-imagen,
+  .top_menu,
+  .enlace_top_menu,
+  aside {
+    width: 100%;
+  }
+  .top_menu,
+  a.enlace_top_menu,
+  aside,
+  a.enlace_side_menu,
+  section,
+  main {
+    display: block;
+  }
+  footer
+  /*, section  */{
+    width: 90%;
+    padding: 5%;
+  }
+  a.enlace_top_menu,
+  a.enlace_side_menu {
+    margin: 0;
+    padding: 10px 0;
+  }
+  .top_menu {
+    padding: 0;
+  }
+  .modulo_1,
+  .modulo_2 {
+    width: 90%;
+    padding: 5%;
+  }
+  .footer_text {
+    text-align: center;
+  }
+}
